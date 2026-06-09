@@ -25,6 +25,7 @@
     --mint-50: oklch(97.5% 0.015 165);
     --mint-200: oklch(92% 0.035 165);
     --emerald-100: oklch(83.416% 0.05159 144.295);
+    --emerald-400: oklch(79.236% 0.07344 143.108);
     --emerald-800: oklch(52.71% 0.1654 142.1);
     --orange-100: oklch(96.8% 0.05 90);
     --orange-800: oklch(55% 0.14 75);
@@ -68,21 +69,25 @@ ul {
 
 html {
     color-scheme: dark light;
+    
+    
+    
 }
 body {
-  margin: 0;
-  background-color: white;
-  color: black;
+margin: 0;
+background-color: white;
+color: black;
+font-family: var(--font-inter);
+color: var(--gray-900);
+padding:2% 10% 5% 10%;
+    /* padding:2% 10% 5% 10%  ;top right bottom left */
+   
 }
 
 /*** Global/base styles ***/
 
-body {
-    font-family: var(--font-inter);
-    color: var(--gray-900);
-}
 /* h1 */
-h2,
+h2{font-weight: bold;font-family: var(--font-poppins);}
 h3,
 h4,
 h5,
@@ -95,61 +100,8 @@ h6 {
 p {
     text-wrap: pretty;
 }
-
-
-
-/* The main 3-column container */
-.hero-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3,1fr) !important; /* Creates 3 columns of equal width */
-    gap: 24px;                             /* Spacing between the columns */
-    padding: 60px 20px;
-    align-items: stretch;   
-    width: 100%;                /* Vertically centers all content */
-    height:fit-content                       /* Centers the whole layout on the screen */
-}
-.hero-grid > div {
-    display: flex;
-    flex-direction:column;
-    width:auto;
-}
-
-
-/* Column 1 styling */
-.col-text h1 {
-    font-size:clamp(2rem,4vw,6rem);
-    font-weight: 1000;
-    line-height: 1.3;
-    margin: 0;
-}
-/* Column 2: Ensures the single image fills the column space nicely */
-.col-single-img {
-    width: 100%;
-    height: auto;
-}
-
-/* Column 3: Forces the two images to sit in a row */
-.col-double-img {
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    width: 100%;
-    height: 20%;                             /* Spacing between the two images */
-}
-.col-double-img img {width:50%}
-
-/* Responsive tweak for smaller screens/mobiles */
-@media (max-width: 768px) {
-    .hero-grid {
-        grid-template-columns: 1fr;        /* Stacks them into 1 column on mobile */
-    }
-}
-
-
-
-
 /* Custom premium scrollbar */
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
 }
 
@@ -165,79 +117,29 @@ p {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--purple-400);
-} */
-
-
-/* Kevin Powell's content-grid layout pattern */
-/* .content-grid {
-    --padding-inline: calc(var(--spacing) * 6);
-    --content-max-width: 75rem;
-    --breakout-max-width: 85rem;
-
-    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
-
-    display: grid;
-    grid-template-columns:
-        [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] minmax(min(100% - (var(--padding-inline) * 2), var(--content-max-width)), 1fr) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
 }
-
-.content-grid> :not(.breakout, .full-width),
-.full-width> :not(.breakout, .full-width) {
-    grid-column: content;
-}
-
-.content-grid>.breakout {
-    grid-column: breakout;
-}
-
-.content-grid>.full-width {
-    grid-column: full-width;
-
-    display: grid;
-    grid-template-columns: inherit;
-} */
-
-
-/* Screen-reader utility (Visually Hidden) */
-/* .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-} */
 
 /* ==========Start:header session complete search container. input and search symbol in header */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
+  width: 85%; 
   height: 70px;
-
   display: flex;
-  flex-wrap:wrap;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 20px;
+  padding: 0 20px 20px 0;
   box-sizing: border-box;
+  margin-bottom: 3%;
 }
-
-/* ==================logo on LEFT of header */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* LEFT */
+.left-section {
+    display: flex;
+    align-items: center;
 }
-
 /* ================CENTER of the header */
 .navbar {
   display: flex;
+  /* -ms-flex-align: center; */
   gap: 20px;
      a {
   color: black;
@@ -245,29 +147,29 @@ p {
     }
 }
 
-/* ==========================RIGHT  section of the header*/
-.right-section {
+/* ==================logo on LEFT of header */
+.logo {
   display: flex;
+  justify-content: left;
   align-items: center;
-  gap: 25px;
-
+  gap: 8px;
 }
-/* ===================start:search container in header  */
-.search-container {
+/* ==========================RIGHT  section of the header*/
+.right-section  {
   display: flex;
   align-items: center;
   background-color:transparent;     /*  makes container white */
-  width:auto;
-  padding: 5px 2px;
-  gap: 8px;                    /* spacing between input & button */
+  /* padding: 5px 2px; */
+  gap: 20px;                    /* spacing between input & button */
 }
 
 /* input styling */
 .search-input {
-  border: none;
-  outline: none;
+  border:#555;
+  outline: auto;
   background-color: white;
-  flex: 1;
+
+  /* flex: 1; */
 }
 
 /* search icon button */
@@ -277,19 +179,76 @@ p {
   border: none;
   cursor: pointer;
   font-size: 16px;
+  margin-right: 10px;
+
 }
-/* ==========End:header session complete search container. input and search symbol in header */
-
-/* ===============Start: main page CSS ===============*/
-
-/* optional login button */
+/*  login button */
 .login {
   background:var(--purple-800);
   color:rgb(255, 255, 255);
   border: none;
-  padding: 3px;
+  padding: 5px 10px;
   cursor: pointer;
+  margin: 0 10px 0 0 ;
 } 
+/* ==========End:header session complete search container. input and search symbol in header */
+
+/* ===============Start: The main 3-column container ===============*/
+
+/* =========Highlighted slogan========== */
+.hero-badge {
+    display: block;   /* fix highlighted under text */
+    background: #ede7ff;
+    color:var(--purple-800);
+    padding: 4px 10px;
+    font-weight: 600;
+    font-size: 14px;
+    gap: calc(var(--spacing-md)*2);
+    width: fit-content;      
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
+    gap: 24px;                             /* Spacing between the columns */
+    padding: 60px 20px;
+ 
+    width: 100%;                /* Vertically centers all content */
+    height:auto; 
+    margin: 40px 0 0 0 ;                    /* Centers the whole layout on the screen */
+}
+.hero-grid > div {
+    display: flex;
+    flex-direction:column;
+    width:auto;
+}
+
+
+/* Column 1 styling */
+.col-text {
+h1 {
+    font-size:clamp(2rem,4vw,6rem);
+    font-weight: 1000;
+    line-height: 1.3;
+    margin: 0;
+}
+p {margin-bottom:10px ;}
+}
+/* Column 3: Forces the two images to sit in a row */
+.col-double-img {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;                           /* Spacing between the two images */
+     img {width:50%}
+}
+
+/* Responsive tweak for smaller screens/mobiles */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;        /* Stacks them into 1 column on mobile */
+    }
+}
+
 .btn-tips {
   color:var(--purple-800);
   background-color:var(--white);
@@ -297,67 +256,51 @@ p {
   cursor: pointer;
   border-color: var(--purple-800);
 } 
-.txt-upptack{
-    display: inline-block;
-  background-color: var(--purple-400);  
-  padding: 5px;
-  text-decoration: none;
-  
-}
+
 /* ===============End main page CSS ===============*/
 
 
 /* Start:middle area grid, search bar, options , date and button  */
 .middle-area{
+    display:block;
     background-color: var(--purple-200);
-    padding: 20px;
-     color: black;
-    h2{
-        font-weight: bold;
-        padding-bottom: 20px;}
+    padding:40px 10%;
+    margin-bottom: 30px;
+    color: black;
+        h2{font-weight: bold; padding-bottom: 30px; margin: 0;}
 }
 .middle-area-grid{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
-    justify-content: justify;
-    gap: 20px;
-    max-width: 1200px;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 20PX;
+    max-width: 1100px;
     margin:0 auto;
-
+    /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
+    /* justify-content: center; */
+    }
+.sok-container {align-items: center;background-color:transparent; }
+.category{display: flex;flex-direction: column;
+    select{background-color:var(--white);color: black;}
 }
-.sok-container {align-items: center;background-color:transparent; width:auto; }
-.category{display: flex;flex-direction: column;}
-.category select{background-color:var(--white);color: black;}
 
-.date {display:flex; flex-direction: column;}
-.date input{background-color: var(--white);color: black;}
-.btn-sok{display: block;margin-top: 20px;color:var(--purple-800);cursor: pointer;border-color: var(--purple-800);  } 
+.date {display:flex; flex-direction: column;
+    input {background-color: var(--white);}
+    label{color: black;}
+}
+.btn-sok{color:var(--purple-800);cursor: pointer;  } 
 /* End:middle area grid, search bar, options , date and button */
-
-/* Start:Extra information in gree backround */
-.information{
-    display:grid; 
-    grid-template-columns:repeat(3,1fr); 
-    color:black; 
-    background-color:var(--emerald-100);
-    h2{font-weight: bold;}
-}
-.information-sub{display:grid; grid-template-columns: repeat(2,1fr);}
-
-/* End:Extra information in green backround  */
 
 
 /* start:Section of images and information in green backround  */
 
 .images-with-info{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-}
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));}
 .card {
     display: block;
     border: 1px solid #ddd;
     border-radius: 12px;
+    margin: 10px 20px 0 ;
     overflow: hidden; /* keeps image inside card */
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     background: white;
@@ -408,27 +351,128 @@ p {
     cursor: pointer;
 }
 .konsert {
-    background: #ede7ff;
-    color: #4b2bbd;
+    background: var(--purple-100);
+    color:var(--purple-800);
 }
 .marknad {
-    background: #e7f7ee;
-    color: #1f7a4d;
+    background:var(--mint-200);
+    color: var(--emerald-800);
 }
 .workshop {
-    background: #fff1e6;
-    color: #c45a00;
+    background: var(--orange-100);
+    color: var(--orange-800);
 }
 .familj {
-    background: #ffe6f0;
-    color: #b3005c;
+    background: var(--pink-100);
+    color: var(--pink-800);
+
 }
 .sport {
-    background: #e6f0ff;
-    color: #1f4fbf;
+   background: var(--blue-100);
+    color: var(--blue-800);
 }
 
-/* End: Section of images and information in green backround  */
+/* End: Section of images and information in flex/grid  */
+
+
+
+/* Kevin Powell's content-grid layout pattern */
+/* .content-grid {
+    --padding-inline: calc(var(--spacing) * 6);
+    --content-max-width: 75rem;
+    --breakout-max-width: 85rem;
+
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+    display: grid;
+    grid-template-columns:
+        [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] minmax(min(100% - (var(--padding-inline) * 2), var(--content-max-width)), 1fr) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid> :not(.breakout, .full-width),
+.full-width> :not(.breakout, .full-width) {
+    grid-column: content;
+}
+
+.content-grid>.breakout {
+    grid-column: breakout;
+}
+
+.content-grid>.full-width {
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-columns: inherit;
+} */
+
+
+/* Screen-reader utility (Visually Hidden) */
+/* .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} */
+
+
+
+
+
+
+/* ===============Start:Extra information in green backround */
+.events-header {
+    display: flex;
+    justify-content: space-between; /* Pushes one to the left, one to the right */
+    align-items: center;           /* Perfectly centers them vertically */
+    width: 100%;
+    margin-bottom: 20px;           /* Adds space below this row */
+}
+
+/*=========== Making the link blue like for link */
+.events-header .blue-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 600;
+}
+.events-header .blue-link:hover {
+    text-decoration: underline;
+}
+
+/* ============icons plus information for the  */
+.information{
+    display:grid; 
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    color:black; 
+    background-color:var(--mint-200);
+    margin: 50px 0 0px;
+    padding: 40px 30px;
+    h2{font-weight: bold;}
+}
+.information-sub{display:flex; width:20rem;align-items:center;gap: 0rem; padding: 0 60 0 0;}
+/* ==============Icon in circle */
+.icon-circle{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background-color:var(--emerald-400);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+@media (max-width: 768px) {
+    .information {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
 
 /* =========================start footer section */
 .footer-container{
@@ -436,7 +480,7 @@ p {
     grid-template-columns: repeat(4,1fr);
     background-color:var(--gray-900);
     color:var(--white);
-    padding: calc (var(--spacing-md)*100);
+    padding: 40px 30px;
     h2{font-weight: bold;}
     
 }
@@ -450,3 +494,50 @@ p {
 .footer-column a:hover {text-decoration: underline;}
 
 /* ====================enf footer section ================*/
+
+/* ==================instagram========== */
+.social-icons {
+    display: flex;
+    gap: 12px;
+a {color: #E1306C}
+ svg {width: 24px;height: 24px;}
+}
+/* ==============heart icon========= */
+.icon-heart {
+    display: flex;align-items: center;
+    gap: 6px;
+    color:var(--); font-size: 14px;
+        svg {width: 20px;height: 20px;}
+        hover {opacity: 0.8;cursor: pointer;}
+}
+/* ==============ticket icon=========== */
+.icon-ticket {
+    display: flex;align-items: center;gap: 6px;
+    color: var(--purple-800);font-size: 14px;
+        svg {width: 20px;height: 20px;}
+        hover {opacity: 0.8;cursor: pointer;}
+}
+ /* =========people icon============= */
+ .icon-people {
+    display: flex;align-items: center; gap: 6px;
+    color: var(--purple-800); font-size: 14px;
+        svg {width: 20px;height: 20px;}
+}
+/* ===============location icon ==============*/
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+ svg {color: var(--purple-800);}
+}
+/* =====================facebook icon ===========*/
+.social-icons a {
+    color: #1877F2; /* Facebook blue */
+}
+
+.social-icons svg {
+    width: 24px;
+    height: 24px;
+}
+/* ========x-icon ===============*/
