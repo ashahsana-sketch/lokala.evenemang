@@ -208,22 +208,30 @@ p {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
     /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
-    gap: 24px;                             /* Spacing between the columns */
-    padding: 60px 20px;
+    gap:24px;   
+    /* align-items: start;                        Spacing between the columns */
+    padding: 60px ;
  
-    width: 100%;                /* Vertically centers all content */
-    height:auto; 
-    margin: 40px 0 0 0 ;                    /* Centers the whole layout on the screen */
+    /* width: 100%;                Vertically centers all content */
+    /* height:auto; */
+    /* margin: 40px 0 30px 0 ;                   Centers the whole layout on the screen */
 }
-.hero-grid > div {
+
+ .hero-grid > div {
     display: flex;
     flex-direction:column;
-    width:auto;
+} 
+/* .images-row {
+  display: flex; gap: 10px;}
+
+.images img {
+  flex: 1;
+  width: 100%;
+  height: auto;
 }
-
-
+.container{display: flex; flex-direction:row;} */
 /* Column 1 styling */
 .col-text {
 h1 {
@@ -242,10 +250,6 @@ p {margin-bottom:10px ;}
      img {width:50%}
 }
 
-
-
-
-/* ===============End main page CSS ===============*/
 .btn-tips {
   color:var(--purple-800);
   background-color:var(--white);
@@ -439,15 +443,16 @@ p {margin-bottom:10px ;}
 /* ============icons plus information for the  */
 .information{
     display:grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3,1fr);
+    /* (auto-fit, minmax(300px, 1fr)); */
     color:black; 
     background-color:var(--mint-200);
-    margin: 50px 0 0px;
+    margin: auto;
     padding: 40px 30px;
     gap: 30px;
     h2{font-weight: bold;}
 }
-.information-sub{display:flex; width:20rem;align-items:center;gap: 0rem; padding: 0 60 0 0;}
+.information-sub{display:flex;align-items:center; padding: 0 60 0 0;}
 /* ==============Icon in circle */
 .icon-circle{
     width:70px;
@@ -529,26 +534,34 @@ a {color: #E1306C}
 } */
 /* ========x-icon ===============*/
 /* Responsive tweak for smaller screens/mobiles */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 /*after header first col become change*/
-.hero-grid{display: flex;flex-direction: column;gap: 10px;}
+.hero-grid{display: grid;grid-template-columns:repeat(3,1fr);gap: 10px;}
 /* .hero-grid > div {flex: 1;} */
-.hero-grid img {width: 100%;height: auto;display: block;}
+.hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
 /*after header first col become change*/
-.col-text { grid-template-columns: 1fr;/* Stacks them into 1 column on mobile */}
+.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
+/*button become col*/ 
+.button-becomes-col{display:flex; flex-direction:column; gap:10px;}
+/*all 3 images in one row*/
+/* .col-double-img{display: flex; flex-direction: row;} */
+/* .col-double-img > div {flex: 1;} */
+/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
+/* .middle-area-grid{display:grid; grid-template-columns: 1fr;  overflow: hidden; } */
+/* information becomes one col*/
+.information { grid-template-columns: 1fr; } 
+}
+/* Responsive for tablet screens */
+@media (min-wdth:768) and (max-width: 1024px) {
+.hero-grid{display: grid;grid-template-columns:repeat(3,1fr);gap: 10px;}
+/* .hero-grid > div {flex: 1;} */
+.hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
+/*after header first col become change*/
+.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
 /*button become col*/ 
 .button-becomes-col{display:flex; flex-direction:column; gap:10px;}
 /*all 3 images in one row*/
 
-/* .col-double-img{display: flex; flex-direction: row;} */
-/* .col-double-img > div {flex: 1;} */
-/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
-.middle-area-grid{display:grid; grid-template-columns: 1fr;   gap: 20PX; }
-/* information becomes one col*/
-/* .information { grid-template-columns: 1fr; } */
-}
-/* Responsive for tablet screens */
-@media (max-width: 1024px) {
-  .middle-area-grid {grid-template-columns: repeat(2, 1fr);}
-  .information { grid-template-columns: repeat (3,1fr); }
+  /* .middle-area-grid {grid-template-columns: 1fr 1fr;} */
+  .information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
 }
