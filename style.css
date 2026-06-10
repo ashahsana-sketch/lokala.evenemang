@@ -121,6 +121,31 @@ p {
 
 /* ==========Start:header session complete search container. input and search symbol in header */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none; /* hidden on desktop */
+}
+/* .header {
   position: relative;
   width: 85%; 
   height: 70px;
@@ -130,22 +155,44 @@ p {
   padding: 0 20px 20px 0;
   box-sizing: border-box;
   margin-bottom: 3%;
-}
+} */
 /* LEFT */
-.left-section {
+/* .left-section {
     display: flex;
     align-items: center;
-}
+} */
 /* ================CENTER of the header */
-.navbar {
+/* mobile default: hide nav */
+/* .navbar {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  gap: 15px;
+  z-index: 1000;
+} */
+/* .menu-toggle:checked ~ .navbar {
   display: flex;
+} */
+/* .hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+} */
+/* mobile default: hide nav */
+/* .navbar {
+  display: flex;*/
   /* -ms-flex-align: center; */
-  gap: 20px;
+  /*gap: 20px;
      a {
   color: black;
   text-decoration: none;
     }
-}
+} */
 
 /* ==================logo on LEFT of header */
 .logo {
@@ -155,13 +202,13 @@ p {
   gap: 8px;
 }
 /* ==========================RIGHT  section of the header*/
-.right-section  {
+/* .right-section  {
   display: flex;
   align-items: center;
   background-color:transparent;     /*  makes container white */
   /* padding: 5px 2px; */
-  gap: 20px;                    /* spacing between input & button */
-}
+  /* gap: 20px;                    spacing between input & button */
+/* } */ 
 
 /* input styling */
 .search-input {
@@ -191,6 +238,12 @@ p {
   cursor: pointer;
   margin: 0 10px 0 0 ;
 } 
+.left-section,
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 /* ==========End:header session complete search container. input and search symbol in header */
 
 /* ===============Start: The main 3-column container ===============*/
@@ -208,7 +261,7 @@ p {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
     /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
     gap:24px;   
     /* align-items: start;                        Spacing between the columns */
@@ -216,7 +269,7 @@ p {
  
     /* width: 100%;                Vertically centers all content */
     /* height:auto; */
-    /* margin: 40px 0 30px 0 ;                   Centers the whole layout on the screen */
+    margin: 40px 0 30px 0 ;               /*     Centers the whole layout on the screen */
 }
 
  .hero-grid > div {
@@ -257,6 +310,7 @@ p {margin-bottom:10px ;}
   cursor: pointer;
   border-color: var(--purple-800);
 }
+.button-becomes-col{display:flex; flex-direction:row; gap:10px;}
 
 /* Start:middle area grid, search bar, options , date and button  */
 .middle-area{
@@ -540,7 +594,8 @@ a {color: #E1306C}
 /* .hero-grid > div {flex: 1;} */
 .hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
 /*after header first col become change*/
-.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
+.col-text { grid-column: 1/-1;}
+/* .col-text { display:grid; grid-template-columns:1fr; gap: 10px;} */
 /*button become col*/ 
 .button-becomes-col{display:flex; flex-direction:column; gap:10px;}
 /*all 3 images in one row*/
@@ -550,9 +605,16 @@ a {color: #E1306C}
 /* .middle-area-grid{display:grid; grid-template-columns: 1fr;  overflow: hidden; } */
 /* information becomes one col*/
 .information { grid-template-columns: 1fr; } 
+.hamburger { display: block;font-size: 28px;cursor: pointer;}
+.login { display: none;}
+ /* hide menu initially */
+.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;
+        width: 100%;background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+ /* THIS is what makes click work copy-paste*/
+ .menu-toggle:checked ~ .navbar {display: flex;}
 }
 /* Responsive for tablet screens */
-@media (min-wdth:768) and (max-width: 1024px) {
+@media  (max-width: 1024px) {
 .hero-grid{display: grid;grid-template-columns:repeat(3,1fr);gap: 10px;}
 /* .hero-grid > div {flex: 1;} */
 .hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
@@ -561,7 +623,13 @@ a {color: #E1306C}
 /*button become col*/ 
 .button-becomes-col{display:flex; flex-direction:column; gap:10px;}
 /*all 3 images in one row*/
-
-  /* .middle-area-grid {grid-template-columns: 1fr 1fr;} */
-  .information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
+/* .middle-area-grid {grid-template-columns: 1fr 1fr;} */
+.information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
+.hamburger { display: block;font-size: 28px;cursor: pointer;}
+.login { display: none;}
+/* hide menu initially */
+.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;width: 100%;
+    background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+/* THIS is what makes click work copy-paste*/
+  .menu-toggle:checked ~ .navbar {display: flex;}
 }
