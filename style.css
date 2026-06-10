@@ -88,9 +88,9 @@ padding:2% 10% 5% 10%;
 
 /* h1 */
 h2{font-weight: bold;font-family: var(--font-poppins);}
-h3,
+/* h3,
 h4,
-h5,
+h5, */
 h6 {
     font-family: var(--font-poppins);
     text-wrap: balance;
@@ -208,7 +208,7 @@ p {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
     gap: 24px;                             /* Spacing between the columns */
     padding: 60px 20px;
@@ -242,23 +242,17 @@ p {margin-bottom:10px ;}
      img {width:50%}
 }
 
-/* Responsive tweak for smaller screens/mobiles */
-@media (max-width: 768px) {
-    .hero-grid {
-        grid-template-columns: 1fr;        /* Stacks them into 1 column on mobile */
-    }
-}
 
+
+
+/* ===============End main page CSS ===============*/
 .btn-tips {
   color:var(--purple-800);
   background-color:var(--white);
   padding: 3px;
   cursor: pointer;
   border-color: var(--purple-800);
-} 
-
-/* ===============End main page CSS ===============*/
-
+}
 
 /* Start:middle area grid, search bar, options , date and button  */
 .middle-area{
@@ -271,31 +265,30 @@ p {margin-bottom:10px ;}
 }
 .middle-area-grid{
     display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20PX;
-    max-width: 1100px;
+    max-width: 1150px;
     margin:0 auto;
     /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
     /* justify-content: center; */
     }
-.sok-container {align-items: center;background-color:transparent; }
+/* all four columns search containe, catogories, date, and button*/
+.sok-container {display:flex; flex-direction: column;max-width: min-content;  background-color:transparent;}
 .category{display: flex;flex-direction: column;
-    select{background-color:var(--white);color: black;}
-}
-
-.date {display:flex; flex-direction: column;
+   select{background-color:var(--white);color: black;}}
+.date {display:flex; flex-direction: column; max-width:min-content;
     input {background-color: var(--white);}
-    label{color: black;}
-}
-.btn-sok{color:var(--purple-800);cursor: pointer;  } 
+    label {color: black;}}
+.btn-sok{display:flex; flex-direction: column;max-width: fit-content;    color:var(--purple-800);cursor: pointer;  } 
 /* End:middle area grid, search bar, options , date and button */
 
 
-/* start:Section of images and information in green backround  */
+/* start: Section of images and information in flex/grid  */
 
 .images-with-info{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));}
+    grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));}
+
 .card {
     display: block;
     border: 1px solid #ddd;
@@ -333,23 +326,23 @@ p {margin-bottom:10px ;}
 }
 
 /* date */
-.date {
+/* .date {
     font-size: 14px;
     color: gray;
-}
+} */
 
 /* text spacing */
 .card h2,
 .card p {
     margin: 8px 10px;
 }
-.btn {
+/* .btn {
     border: none;
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
-}
+} */
 .konsert {
     background: var(--purple-100);
     color:var(--purple-800);
@@ -424,7 +417,7 @@ p {margin-bottom:10px ;}
 
 
 
-/* ===============Start:Extra information in green backround */
+
 .events-header {
     display: flex;
     justify-content: space-between; /* Pushes one to the left, one to the right */
@@ -442,15 +435,16 @@ p {margin-bottom:10px ;}
 .events-header .blue-link:hover {
     text-decoration: underline;
 }
-
+/* ===============Start: green backround */
 /* ============icons plus information for the  */
 .information{
     display:grid; 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     color:black; 
     background-color:var(--mint-200);
     margin: 50px 0 0px;
     padding: 40px 30px;
+    gap: 30px;
     h2{font-weight: bold;}
 }
 .information-sub{display:flex; width:20rem;align-items:center;gap: 0rem; padding: 0 60 0 0;}
@@ -465,79 +459,96 @@ p {margin-bottom:10px ;}
     align-items:center;
     flex-shrink:0;
 }
-@media (max-width: 768px) {
-    .information {
-        grid-template-columns: 1fr;
-    }
-}
+/* ===============end: green backround */
 
 
 
-
-/* =========================start footer section */
+/* =========================start: footer section =========*/
 .footer-container{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     background-color:var(--gray-900);
     color:var(--white);
-    padding: 40px 30px;
-    h2{font-weight: bold;}
+    /* margin: auto; */
+    /* h2{font-weight: bold;} */
     
 }
 
-.footer-column ul {list-style: none;padding: 0;margin: 0;}
-
-.footer-column li {margin-bottom: 8px;}
-
-.footer-column a {text-decoration: none;color: inherit;}
-
-.footer-column a:hover {text-decoration: underline;}
-
-/* ====================enf footer section ================*/
+.footer-column {padding: 20px 15px;
+    ul {list-style: none;padding: 0;margin: 0;}
+    li {margin-bottom: 8px;}
+    a {text-decoration: none;color: inherit;}
+    a:hover {text-decoration: underline;}
+}
+/* ====================end: footer section ================*/
 
 /* ==================instagram========== */
-.social-icons {
+/* .social-icons {
     display: flex;
     gap: 12px;
 a {color: #E1306C}
  svg {width: 24px;height: 24px;}
-}
+} */
 /* ==============heart icon========= */
-.icon-heart {
+/* .icon-heart {
     display: flex;align-items: center;
     gap: 6px;
     color:var(--); font-size: 14px;
         svg {width: 20px;height: 20px;}
         hover {opacity: 0.8;cursor: pointer;}
-}
+} */
 /* ==============ticket icon=========== */
-.icon-ticket {
+/* .icon-ticket {
     display: flex;align-items: center;gap: 6px;
     color: var(--purple-800);font-size: 14px;
         svg {width: 20px;height: 20px;}
         hover {opacity: 0.8;cursor: pointer;}
-}
+} */
  /* =========people icon============= */
- .icon-people {
+ /* .icon-people {
     display: flex;align-items: center; gap: 6px;
     color: var(--purple-800); font-size: 14px;
         svg {width: 20px;height: 20px;}
-}
+} */
 /* ===============location icon ==============*/
-.location {
+/* .location {
     display: flex;
     align-items: center;
     gap: 6px;
     color: #555;
  svg {color: var(--purple-800);}
-}
+} */
 /* =====================facebook icon ===========*/
-.social-icons a {
+/* .social-icons a {
     color: #1877F2; /* Facebook blue */
-}
+/* } */
 
-.social-icons svg {
+/*.social-icons svg {
     width: 24px;
     height: 24px;
-}
+} */
 /* ========x-icon ===============*/
+/* Responsive tweak for smaller screens/mobiles */
+@media (max-width: 768px) {
+/*after header first col become change*/
+.hero-grid{display: flex;flex-direction: column;gap: 10px;}
+/* .hero-grid > div {flex: 1;} */
+.hero-grid img {width: 100%;height: auto;display: block;}
+/*after header first col become change*/
+.col-text { grid-template-columns: 1fr;/* Stacks them into 1 column on mobile */}
+/*button become col*/ 
+.button-becomes-col{display:flex; flex-direction:column; gap:10px;}
+/*all 3 images in one row*/
+
+/* .col-double-img{display: flex; flex-direction: row;} */
+/* .col-double-img > div {flex: 1;} */
+/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
+.middle-area-grid{display:grid; grid-template-columns: 1fr;   gap: 20PX; }
+/* information becomes one col*/
+/* .information { grid-template-columns: 1fr; } */
+}
+/* Responsive for tablet screens */
+@media (max-width: 1024px) {
+  .middle-area-grid {grid-template-columns: repeat(2, 1fr);}
+  .information { grid-template-columns: repeat (3,1fr); }
+}
