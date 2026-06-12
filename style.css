@@ -108,6 +108,12 @@ Start:header session--input and search symbol in header
   background-color: white;
   flex: 1;
 }
+.search-input-1 {
+  border:#555;
+  outline: auto;
+  background-color: white;
+  flex: 1;
+}
 
 /* search icon button */
 .search-button {
