@@ -261,13 +261,13 @@ p {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
     gap:24px;   
     /* align-items: start;                        Spacing between the columns */
     padding: 60px ;
  
-    /* width: 100%;                Vertically centers all content */
+     width: 100%;               /* Vertically centers all content */
     /* height:auto; */
     margin: 40px 0 30px 0 ;               /*     Centers the whole layout on the screen */
 }
@@ -331,7 +331,7 @@ p {margin-bottom:10px ;}
     /* justify-content: center; */
     }
 /* all four columns search containe, catogories, date, and button*/
-.sok-container {display:flex; flex-direction: column;max-width: min-content;  background-color:transparent;}
+.sok-container {display:flex; flex-direction: column; max-width:150px;  background-color:transparent; border-radius: 0%;}
 .category{display: flex;flex-direction: column;
    select{background-color:var(--white);color: black;}}
 .date {display:flex; flex-direction: column; max-width:min-content;
@@ -425,57 +425,6 @@ p {margin-bottom:10px ;}
 
 /* End: Section of images and information in flex/grid  */
 
-
-
-/* Kevin Powell's content-grid layout pattern */
-/* .content-grid {
-    --padding-inline: calc(var(--spacing) * 6);
-    --content-max-width: 75rem;
-    --breakout-max-width: 85rem;
-
-    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
-
-    display: grid;
-    grid-template-columns:
-        [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] minmax(min(100% - (var(--padding-inline) * 2), var(--content-max-width)), 1fr) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
-}
-
-.content-grid> :not(.breakout, .full-width),
-.full-width> :not(.breakout, .full-width) {
-    grid-column: content;
-}
-
-.content-grid>.breakout {
-    grid-column: breakout;
-}
-
-.content-grid>.full-width {
-    grid-column: full-width;
-
-    display: grid;
-    grid-template-columns: inherit;
-} */
-
-
-/* Screen-reader utility (Visually Hidden) */
-/* .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-} */
-
-
-
-
-
-
-
 .events-header {
     display: flex;
     justify-content: space-between; /* Pushes one to the left, one to the right */
@@ -541,6 +490,54 @@ p {margin-bottom:10px ;}
 }
 /* ====================end: footer section ================*/
 
+/* Responsive tweak for smaller screens/mobiles */
+@media (max-width: 767px) {
+/*after header first col become change*/
+.hero-grid{display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));gap: 10px;}
+.hero-grid > div {flex: 1;} 
+/* .hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;} */
+/*after header first col become change*/
+.col-text { grid-column: 1/-1;}
+/* .col-text { display:grid; grid-template-columns:1fr; gap: 10px;} */
+/*button become col*/ 
+.button-becomes-col{display:grid; grid-template-rows: auto;  gap:10px;}
+/*all 3 images in one row*/
+/* .col-double-img{display: flex; flex-direction: row;} */
+/* .col-double-img > div {flex: 1;} */
+/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
+.middle-area-grid{grid-template-columns: 1fr;  }
+/* information becomes one col*/
+.information { grid-template-columns: 1fr; } 
+.hamburger { display: block;font-size: 28px;cursor: pointer;}
+.login { display: none;}
+ /* hide menu initially */
+.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;
+        width: 100%;background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+ /* THIS is what makes click work copy-paste*/
+ .menu-toggle:checked ~ .navbar {display: flex;}
+}
+/* Responsive for tablet screens */
+@media screen (max-width: 1024px) {
+    
+/* .hero-grid{display:grid; grid-template-columns:repeat(3,1fr);} */
+/* .hero-grid > div {flex: 1;} */
+.hero-grid img {display: flex; flex-direction:column; width:100%; height:auto;}
+/*after header first col become change*/
+.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
+/*==================button become col=============*/ 
+.button-becomes-col{display:grid; grid-template-rows:row; gap:10px;}
+/*all 3 images in one row*/
+.middle-area-grid { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));}
+.information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
+.hamburger { display: block;font-size: 28px;cursor: pointer;}
+.login { display: none;}
+/* hide menu initially */
+.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;width: 100%;
+    background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+/* THIS is what makes click work copy-paste*/
+  .menu-toggle:checked ~ .navbar {display: flex;}
+}
+
 /* ==================instagram========== */
 /* .social-icons {
     display: flex;
@@ -587,49 +584,47 @@ a {color: #E1306C}
     height: 24px;
 } */
 /* ========x-icon ===============*/
-/* Responsive tweak for smaller screens/mobiles */
-@media (max-width: 767px) {
-/*after header first col become change*/
-.hero-grid{display: grid;grid-template-columns:repeat(3,1fr);gap: 10px;}
-/* .hero-grid > div {flex: 1;} */
-.hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
-/*after header first col become change*/
-.col-text { grid-column: 1/-1;}
-/* .col-text { display:grid; grid-template-columns:1fr; gap: 10px;} */
-/*button become col*/ 
-.button-becomes-col{display:flex; flex-direction:column; gap:10px;}
-/*all 3 images in one row*/
-/* .col-double-img{display: flex; flex-direction: row;} */
-/* .col-double-img > div {flex: 1;} */
-/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
-/* .middle-area-grid{display:grid; grid-template-columns: 1fr;  overflow: hidden; } */
-/* information becomes one col*/
-.information { grid-template-columns: 1fr; } 
-.hamburger { display: block;font-size: 28px;cursor: pointer;}
-.login { display: none;}
- /* hide menu initially */
-.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;
-        width: 100%;background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
- /* THIS is what makes click work copy-paste*/
- .menu-toggle:checked ~ .navbar {display: flex;}
+
+
+/* Kevin Powell's content-grid layout pattern */
+/* .content-grid {
+    --padding-inline: calc(var(--spacing) * 6);
+    --content-max-width: 75rem;
+    --breakout-max-width: 85rem;
+
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+    display: grid;
+    grid-template-columns:
+        [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] minmax(min(100% - (var(--padding-inline) * 2), var(--content-max-width)), 1fr) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end];
 }
-/* Responsive for tablet screens */
-@media  (max-width: 1024px) {
-.hero-grid{display: grid;grid-template-columns:repeat(3,1fr);gap: 10px;}
-/* .hero-grid > div {flex: 1;} */
-.hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;}
-/*after header first col become change*/
-.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
-/*button become col*/ 
-.button-becomes-col{display:flex; flex-direction:column; gap:10px;}
-/*all 3 images in one row*/
-/* .middle-area-grid {grid-template-columns: 1fr 1fr;} */
-.information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
-.hamburger { display: block;font-size: 28px;cursor: pointer;}
-.login { display: none;}
-/* hide menu initially */
-.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;width: 100%;
-    background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
-/* THIS is what makes click work copy-paste*/
-  .menu-toggle:checked ~ .navbar {display: flex;}
+
+.content-grid> :not(.breakout, .full-width),
+.full-width> :not(.breakout, .full-width) {
+    grid-column: content;
 }
+
+.content-grid>.breakout {
+    grid-column: breakout;
+}
+
+.content-grid>.full-width {
+    grid-column: full-width;
+
+    display: grid;
+    grid-template-columns: inherit;
+} */
+
+
+/* Screen-reader utility (Visually Hidden) */
+/* .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} */
