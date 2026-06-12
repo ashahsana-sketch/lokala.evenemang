@@ -43,36 +43,11 @@
     Basic reset & typography
    ========================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    font: inherit;
-
-    box-sizing: border-box;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-
-html {
-    color-scheme: dark light;
-    
-    
-    
-}
+* {margin: 0;padding: 0;font: inherit;box-sizing: border-box;}
+img {max-width: 100%;height: auto;display: block;}
+a {text-decoration: none;color: inherit;}
+ul {list-style: none;}
+html {color-scheme: dark light;}
 body {
 margin: 0;
 background-color: white;
@@ -81,142 +56,57 @@ font-family: var(--font-inter);
 color: var(--gray-900);
 padding:2% 10% 5% 10%;
     /* padding:2% 10% 5% 10%  ;top right bottom left */
-   
 }
 
-/*** Global/base styles ***/
-
-/* h1 */
+/*** ===================
+    Global/base styles
+====================== ***/
 h2{font-weight: bold;font-family: var(--font-poppins);}
-/* h3,
-h4,
-h5, */
-h6 {
-    font-family: var(--font-poppins);
-    text-wrap: balance;
-    line-height: 1.1;
-}
+h6 {    font-family: var(--font-poppins);text-wrap: balance;line-height: 1.1;}
+p {text-wrap: pretty;}
+/* ==================
+    Custom premium scrollbar
+    ====================== */
+::-webkit-scrollbar {width: 10px;}
 
-p {
-    text-wrap: pretty;
-}
-/* Custom premium scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
+::-webkit-scrollbar-track { background: var(--gray-50);}
 
-::-webkit-scrollbar-track {
-    background: var(--gray-50);
-}
+::-webkit-scrollbar-thumb {background: var(--gray-300);border-radius: 5px;border: 2px solid var(--gray-50);}
 
-::-webkit-scrollbar-thumb {
-    background: var(--gray-300);
-    border-radius: 5px;
-    border: 2px solid var(--gray-50);
-}
+::-webkit-scrollbar-thumb:hover {background: var(--purple-400);}
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--purple-400);
-}
-
-/* ==========Start:header session complete search container. input and search symbol in header */
+/* ================================
+Start:header session--input and search symbol in header
+================================================ */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
 }
+.navbar { display: flex;gap: 20px;}
 
-.navbar {
-  display: flex;
-  gap: 20px;
-}
+.left-section,.right-section {display: flex;align-items: center;gap: 15px;}
 
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
+.menu-toggle {display: none;}
 
-.menu-toggle {
-  display: none;
-}
+.hamburger {display: none;} /* hidden on desktop */
 
-.hamburger {
-  display: none; /* hidden on desktop */
-}
-/* .header {
-  position: relative;
-  width: 85%; 
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px 20px 0;
-  box-sizing: border-box;
-  margin-bottom: 3%;
-} */
-/* LEFT */
-/* .left-section {
-    display: flex;
-    align-items: center;
-} */
-/* ================CENTER of the header */
-/* mobile default: hide nav */
-/* .navbar {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  background: white;
-  padding: 20px;
-  gap: 15px;
-  z-index: 1000;
-} */
-/* .menu-toggle:checked ~ .navbar {
-  display: flex;
-} */
-/* .hamburger {
-  font-size: 28px;
-  cursor: pointer;
-  display: block;
-} */
-/* mobile default: hide nav */
-/* .navbar {
-  display: flex;*/
-  /* -ms-flex-align: center; */
-  /*gap: 20px;
-     a {
-  color: black;
-  text-decoration: none;
-    }
-} */
-
-/* ==================logo on LEFT of header */
+/* ==================logo on LEFT of header========= */
 .logo {
   display: flex;
   justify-content: left;
   align-items: center;
   gap: 8px;
 }
-/* ==========================RIGHT  section of the header*/
-/* .right-section  {
-  display: flex;
-  align-items: center;
-  background-color:transparent;     /*  makes container white */
-  /* padding: 5px 2px; */
-  /* gap: 20px;                    spacing between input & button */
-/* } */ 
+/* ==========================RIGHT  section of the header==========*/
 
 /* input styling */
 .search-input {
   border:#555;
   outline: auto;
   background-color: white;
-
-  /* flex: 1; */
+  flex: 1;
 }
 
 /* search icon button */
@@ -238,17 +128,13 @@ p {
   cursor: pointer;
   margin: 0 10px 0 0 ;
 } 
-.left-section,
-.right-section {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
 /* ==========End:header session complete search container. input and search symbol in header */
 
-/* ===============Start: The main 3-column container ===============*/
+/* =============================
+Start: The main 3-column container
+============== ===============*/
 
-/* =========Highlighted slogan========== */
+/* Highlighted slogan */
 .hero-badge {
     display: block;   /* fix highlighted under text */
     background: #ede7ff;
@@ -262,47 +148,28 @@ p {
 .hero-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    /* grid-template-columns: repeat(3,1fr); Creates 3 columns of equal width */
     gap:24px;   
-    /* align-items: start;                        Spacing between the columns */
-    padding: 60px ;
- 
-     width: 100%;               /* Vertically centers all content */
-    /* height:auto; */
-    margin: 40px 0 30px 0 ;               /*     Centers the whole layout on the screen */
+    align-items: start;        /* Spacing between the columns */
+    padding: 60px;
+    width: 100%;               /* Vertically centers all content */
+    height:auto; 
+    margin: 40px 0 30px 0 ;     /*Centers the whole layout on the screen */
 }
 
- .hero-grid > div {
-    display: flex;
-    flex-direction:column;
-} 
-/* .images-row {
-  display: flex; gap: 10px;}
-
-.images img {
-  flex: 1;
-  width: 100%;
-  height: auto;
-}
-.container{display: flex; flex-direction:row;} */
+ .hero-grid > div {display: flex;  flex-direction:column;} 
 /* Column 1 styling */
 .col-text {
-h1 {
-    font-size:clamp(2rem,4vw,6rem);
-    font-weight: 1000;
-    line-height: 1.3;
-    margin: 0;
-}
-p {margin-bottom:10px ;}
+    h1 {font-size:clamp(2rem,4vw,6rem);font-weight: 1000;line-height: 1.3;margin: 0;}
+    p {margin-bottom:10px ;}
 }
 /* Column 3: Forces the two images to sit in a row */
 .col-double-img {
     display: flex;
     flex-direction: row;
     gap: 12px;                           /* Spacing between the two images */
-     img {width:50%}
+    img {width:50%}
 }
-
+/* Buttons at the end of forst col */
 .btn-tips {
   color:var(--purple-800);
   background-color:var(--white);
@@ -328,20 +195,25 @@ p {margin-bottom:10px ;}
     max-width: 1150px;
     margin:0 auto;
     /* grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); */
-    /* justify-content: center; */
+    justify-content: center; 
     }
 /* all four columns search containe, catogories, date, and button*/
 .sok-container {display:flex; flex-direction: column; max-width:150px;  background-color:transparent; border-radius: 0%;}
+
 .category{display: flex;flex-direction: column;
    select{background-color:var(--white);color: black;}}
-.date {display:flex; flex-direction: column; max-width:min-content;
+
+   .date {display:flex; flex-direction: column; max-width:fit-content;
     input {background-color: var(--white);}
     label {color: black;}}
-.btn-sok{display:flex; flex-direction: column;max-width: fit-content;    color:var(--purple-800);cursor: pointer;  } 
-/* End:middle area grid, search bar, options , date and button */
+
+    .btn-sok{display:flex; flex-direction: column;max-width: fit-content;    color:var(--purple-800);cursor: pointer;  } 
+/* =============End:middle area grid, search bar, options , date and button */
 
 
-/* start: Section of images and information in flex/grid  */
+/* ===================================
+start: Section of images and information in flex/grid 
+====================================== */
 
 .images-with-info{
     display: grid;
@@ -383,45 +255,13 @@ p {margin-bottom:10px ;}
     cursor: pointer;
 }
 
-/* date */
-/* .date {
-    font-size: 14px;
-    color: gray;
-} */
-
-/* text spacing */
-.card h2,
-.card p {
-    margin: 8px 10px;
-}
-/* .btn {
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    cursor: pointer;
-} */
-.konsert {
-    background: var(--purple-100);
-    color:var(--purple-800);
-}
-.marknad {
-    background:var(--mint-200);
-    color: var(--emerald-800);
-}
-.workshop {
-    background: var(--orange-100);
-    color: var(--orange-800);
-}
-.familj {
-    background: var(--pink-100);
-    color: var(--pink-800);
-
-}
-.sport {
-   background: var(--blue-100);
-    color: var(--blue-800);
-}
+/* =======text spacing */
+.card h2,.card p {margin: 8px 10px;}
+.konsert {background: var(--purple-100);color:var(--purple-800);}
+.marknad {background:var(--mint-200);color: var(--emerald-800);}
+.workshop {background: var(--orange-100);color: var(--orange-800);}
+.familj {background: var(--pink-100);color: var(--pink-800);}
+.sport {background: var(--blue-100);color: var(--blue-800);}
 
 /* End: Section of images and information in flex/grid  */
 
@@ -435,19 +275,17 @@ p {margin-bottom:10px ;}
 
 /*=========== Making the link blue like for link */
 .events-header .blue-link {
-    color: #0066cc;
+    color:var(--blue-800);
     text-decoration: none;
     font-weight: 600;
 }
-.events-header .blue-link:hover {
-    text-decoration: underline;
-}
-/* ===============Start: green backround */
+.events-header .blue-link:hover {text-decoration: underline;}
+/* =========================================
+Start: green backround====================== */
 /* ============icons plus information for the  */
 .information{
     display:grid; 
-    grid-template-columns: repeat(3,1fr);
-    /* (auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     color:black; 
     background-color:var(--mint-200);
     margin: auto;
@@ -471,10 +309,13 @@ p {margin-bottom:10px ;}
 
 
 
-/* =========================start: footer section =========*/
+/* =========================
+start: footer section 
+=====================*/
 .footer-container{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(4,1fr);
+    /* grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); */
     background-color:var(--gray-900);
     color:var(--white);
     /* margin: auto; */
@@ -490,52 +331,43 @@ p {margin-bottom:10px ;}
 }
 /* ====================end: footer section ================*/
 
-/* Responsive tweak for smaller screens/mobiles */
-@media (max-width: 767px) {
-/*after header first col become change*/
-.hero-grid{display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));gap: 10px;}
-.hero-grid > div {flex: 1;} 
-/* .hero-grid img {display: flex; flex-direction: column; width: 100%;height: auto;} */
-/*after header first col become change*/
-.col-text { grid-column: 1/-1;}
-/* .col-text { display:grid; grid-template-columns:1fr; gap: 10px;} */
-/*button become col*/ 
-.button-becomes-col{display:grid; grid-template-rows: auto;  gap:10px;}
-/*all 3 images in one row*/
-/* .col-double-img{display: flex; flex-direction: row;} */
-/* .col-double-img > div {flex: 1;} */
-/* .col-double-img img{flex:1 1 100px;width: 33%;height: auto; } */
+/* ==================================
+Mobile screen
+================================= */
+@media (max-width: 768px) {
 .middle-area-grid{grid-template-columns: 1fr;  }
+
 /* information becomes one col*/
 .information { grid-template-columns: 1fr; } 
-.hamburger { display: block;font-size: 28px;cursor: pointer;}
-.login { display: none;}
- /* hide menu initially */
-.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;
-        width: 100%;background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
- /* THIS is what makes click work copy-paste*/
- .menu-toggle:checked ~ .navbar {display: flex;}
+
+.footer-container{grid-template-columns: 1fr;}
+
+.menu-toggle:checked ~ .navbar {display: flex;}
 }
-/* Responsive for tablet screens */
-@media screen (max-width: 1024px) {
-    
-/* .hero-grid{display:grid; grid-template-columns:repeat(3,1fr);} */
-/* .hero-grid > div {flex: 1;} */
-.hero-grid img {display: flex; flex-direction:column; width:100%; height:auto;}
-/*after header first col become change*/
-.col-text { grid-column: 1/-1;}/* Stacks them into 1 column on mobile */
-/*==================button become col=============*/ 
-.button-becomes-col{display:grid; grid-template-rows:row; gap:10px;}
-/*all 3 images in one row*/
+/* ============================
+Tablet screens 
+=======================*/
+@media (max-width: 1024px) {
+/* the first section becomes col */
+.hero-grid{display:flex; flex-direction: column;}
+
+.hero-grid > div {flex: 1;}
+
+.col-text { grid-column: 1/-1;}
+
+/*button becomes row*/ 
+.button-becomes-col{display:flex; flex-direction: column; padding: 0px; gap:12px; align-items: flex-start;} 
+
 .middle-area-grid { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));}
-.information { grid-template-columns: 1fr 1fr 1fr; overflow: hidden; }
+
+
 .hamburger { display: block;font-size: 28px;cursor: pointer;}
-.login { display: none;}
-/* hide menu initially */
-.navbar {display: none;flex-direction: column;position: absolute;top: 70px;left: 0;width: 100%;
-    background: white;padding: 20px;gap: 15px;box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+
+.search-input,.login-1, .navbar { display: none;}
+
 /* THIS is what makes click work copy-paste*/
-  .menu-toggle:checked ~ .navbar {display: flex;}
+.menu-toggle:checked ~ .navbar {display: flex;}
+
 }
 
 /* ==================instagram========== */
@@ -628,3 +460,70 @@ a {color: #E1306C}
     white-space: nowrap;
     border: 0;
 } */
+ 
+/* .images-row {
+  display: flex; gap: 10px;}
+
+.images img {
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
+.container{display: flex; flex-direction:row;} */
+
+/* .right-section  {
+  display: flex;
+  align-items: center;
+  background-color:transparent;     /*  makes container white */
+  /* padding: 5px 2px; */
+  /* gap: 20px;                    spacing between input & button */
+/* } */ 
+/* .header {
+  position: relative;
+  width: 85%; 
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 20px 0;
+  box-sizing: border-box;
+  margin-bottom: 3%;
+} */
+/* LEFT */
+/* .left-section {
+    display: flex;
+    align-items: center;
+} */
+/* ================CENTER of the header */
+/* mobile default: hide nav */
+/* .navbar {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  gap: 15px;
+  z-index: 1000;
+} */
+/* .menu-toggle:checked ~ .navbar {
+  display: flex;
+} */
+/* .hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  display: block;
+} */
+/* mobile default: hide nav */
+/* .navbar {
+  display: flex;*/
+  /* -ms-flex-align: center; */
+  /*gap: 20px;
+     a {
+  color: black;
+  text-decoration: none;
+    }
+} */
+
